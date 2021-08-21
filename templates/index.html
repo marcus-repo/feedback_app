@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <meta http-equiv="X-UA-Compatible" content="ie=edge" /> -->
+    <link rel="stylesheet" href="../static/style.css" />
+    <title>Bewerte Dein Training</title>
+  </head>
+  <body>
+    <div class="container">
+
+      <img src="../static/logo.png" alt="Lauf Mama Lauf" class="logo" />
+      <h2>Team Fürth</h2>
+
+      {% if message %}
+      <p class="message">{{ message | safe }}</p>
+      {% endif %}
+
+      <form action="/submit" method="POST">
+        <div class="form-group">
+          <h3>Trainer</h3>
+          <select name="trainer">
+            <option value="">(Auswahl)</option>
+            <option value="Anna">Anna</option>
+            <option value="Nadine">Nadine</option>
+            <option value="Nicole">Nicole</option>
+            <option value="Susanne">Susanne</option>
+            <option value="Sveta">Sveta</option>
+            <option value="Tamara">Tamara</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <h3>Kurse</h3>
+          <select name="course">
+            <option value="">(Auswahl)</option>
+            <option value="KIWA">Kinderwagenkurs</option>
+            <option value="MMM">Mama macht mehr</option>
+            <option value="Laufkurs">Laufkurs</option>
+            <option value="Yoga">Yoga</option>
+            <option value="YogaSchwangere">Yoga für Schwangere</option>
+            <option value="YogaPostnatal">Postnatal Yoga</option>
+            <option value="Pilates">Pilates</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <h3>Bewerte Deinen Kurs <span class="small-hint">10=sehr gut</span></h3>
+          <input type="radio" name="rating" value="1" /> 1
+          <input type="radio" name="rating" value="2" /> 2
+          <input type="radio" name="rating" value="3" /> 3
+          <input type="radio" name="rating" value="4" /> 4
+          <input type="radio" name="rating" value="5" /> 5
+          <input type="radio" name="rating" value="6" /> 6
+          <input type="radio" name="rating" value="7" /> 7
+          <input type="radio" name="rating" value="8" /> 8
+          <input type="radio" name="rating" value="9" /> 9
+          <input type="radio" name="rating" value="10" checked /> 10
+        </div>
+        <div class="form-group">
+          <h3>Kommentar</h3>
+          <textarea
+            name="comments"
+            id=""
+            cols="30"
+            rows="10"
+            placeholder="Was hat Dir gefallen und was nicht"
+          ></textarea>
+        </div>
+        <input type="submit" value="Senden" class="btn" />
+      </form>
+    </div>
+  </body>
+</html>
