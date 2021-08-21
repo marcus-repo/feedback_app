@@ -13,10 +13,7 @@ if ENV == 'dev':
     app.config['TEMPLATES_AUTO_RELOAD'] = True
 else:
     app.debug = False
-    app.config['SQLALCHEMY_DATABASE_URI'] = \
-        'postgres://desmfcduwsbktc:\
-         e03946793e03fd2825b8d73710cf0d4014676c1fce5f3b15989cb53415184ba3\
-         @ec2-54-73-147-133.eu-west-1.compute.amazonaws.com:5432/d5o40csvlsgruu'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://desmfcduwsbktc:e03946793e03fd2825b8d73710cf0d4014676c1fce5f3b15989cb53415184ba3@ec2-54-73-147-133.eu-west-1.compute.amazonaws.com:5432/d5o40csvlsgruu'
     
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
