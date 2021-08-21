@@ -3,11 +3,11 @@ from email.mime.text import MIMEText
 
 #MIMEText allows to send emails in html
 
-def send_mail(trainer, course, rating, comments):
+def send_mail(login, password, trainer, course, rating, comments):
 	port = 2525
 	smtp_server = 'smtp.mailtrap.io'
-	login = '0a793fe0df6e15'
-	password = 'b9965159277134'
+	login = login
+	password = password
 	message = f"<h3>New Feedback Submission</h3><ul><li>Trainer: {trainer}\
         </li><li>Course: {course} </li><li>Rating: {rating}\
         </li><li>Comments: {comments} </li></ul>"
