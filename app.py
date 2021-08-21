@@ -11,7 +11,7 @@ app = Flask(__name__)
 
 
 # switch between dev and production
-ENV = 'dev'
+ENV = 'prod'
 if ENV == 'dev':
     
     # debug modus on
