@@ -15,10 +15,7 @@ if ENV == 'dev':
 else:
     app.debug = False
     DATABASE_URL = os.environ.get("DATABASE_URL")
-    app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URL
-    
-#'postgres://desmfcduwsbktc:e03946793e03fd2825b8d73710cf0d4014676c1fce5f3b15989cb53415184ba3@ec2-54-73-147-133.eu-west-1.compute.amazonaws.com:5432/d5o40csvlsgruu'
-    
+    app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URL  
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     
@@ -37,8 +34,7 @@ class Feedback(db.Model):
         self.trainer = trainer
         self.course = course
         self.rating = rating
-        self.comments = comments
-        
+        self.comments = comments  
 
 
 @app.route('/')
