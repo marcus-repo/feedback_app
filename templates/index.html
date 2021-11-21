@@ -19,19 +19,7 @@
 
       <form action="/submit" method="POST">
         <div class="form-group">
-          <h3>Trainer</h3>
-          <select name="trainer">
-            <option value="">(Auswahl)</option>
-            <option value="Anna">Anna</option>
-            <option value="Nadine">Nadine</option>
-            <option value="Nicole">Nicole</option>
-            <option value="Susanne">Susanne</option>
-            <option value="Sveta">Sveta</option>
-            <option value="Tamara">Tamara</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <h3>Kurse</h3>
+          <h3>Kurs</h3>
           <select name="course">
             <option value="">(Auswahl)</option>
             <option value="KIWA">Kinderwagenkurs</option>
@@ -44,17 +32,44 @@
           </select>
         </div>
         <div class="form-group">
+          <label>
+            teilgenommen am:
+            <input type="date" name="course_date" min="2021-10-01" max="2022-12-31" 
+              required pattern="\d{4}-\d{2}-\d{2}">
+            <span class="validity"></span>
+          </label>
+        </div>
+        <div class="form-group">
           <h3>Bewerte Deinen Kurs <span class="small-hint">10=sehr gut</span></h3>
-          <input type="radio" name="rating" value="1" /> 1
-          <input type="radio" name="rating" value="2" /> 2
-          <input type="radio" name="rating" value="3" /> 3
-          <input type="radio" name="rating" value="4" /> 4
-          <input type="radio" name="rating" value="5" /> 5
-          <input type="radio" name="rating" value="6" /> 6
-          <input type="radio" name="rating" value="7" /> 7
-          <input type="radio" name="rating" value="8" /> 8
-          <input type="radio" name="rating" value="9" /> 9
-          <input type="radio" name="rating" value="10" checked /> 10
+          <fieldset id="rating">
+            <input type="radio" name="rating" value="1" /> 1
+            <input type="radio" name="rating" value="2" /> 2
+            <input type="radio" name="rating" value="3" /> 3
+            <input type="radio" name="rating" value="4" /> 4
+            <input type="radio" name="rating" value="5" checked /> 5
+            <input type="radio" name="rating" value="6" /> 6
+            <input type="radio" name="rating" value="7" /> 7
+            <input type="radio" name="rating" value="8" /> 8
+            <input type="radio" name="rating" value="9" /> 9
+            <input type="radio" name="rating" value="10"/> 10
+          </fieldset>
+        </div>
+        <div class="form-group">
+            <h3>Würdest Du Lauf Mama Lauf einem Freund empfehlen?
+              <span class="small-hint">10=definitiv</span>
+            </h3>
+            <fieldset id="recommendation">
+              <input type="radio" name="recommendation" value="1" /> 1
+              <input type="radio" name="recommendation" value="2" /> 2
+              <input type="radio" name="recommendation" value="3" /> 3
+              <input type="radio" name="recommendation" value="4" /> 4
+              <input type="radio" name="recommendation" value="5" checked /> 5
+              <input type="radio" name="recommendation" value="6" /> 6
+              <input type="radio" name="recommendation" value="7" /> 7
+              <input type="radio" name="recommendation" value="8" /> 8
+              <input type="radio" name="recommendation" value="9" /> 9
+              <input type="radio" name="recommendation" value="10"/> 10
+          </fieldset>
         </div>
         <div class="form-group">
           <h3>Kommentar</h3>

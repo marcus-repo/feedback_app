@@ -37,6 +37,10 @@ img {
 	width: 100%;
 }
 
+fieldset {
+    border: 0;
+}
+
 .small-hint {
 	font-style: italic;
 	/*font-weight: lighter;*/
@@ -83,3 +87,4 @@ textarea {
 	outline: none;
 	margin-top: 1rem;
 }
+

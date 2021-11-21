@@ -50,19 +50,22 @@ db = SQLAlchemy(app)
 
 # database model
 class Feedback(db.Model):
-    __tablename__ = 'feedback'
+    __tablename__ = 'response'
     id = db.Column(db.Integer, primary_key=True)
-    trainer = db.Column(db.String(200))
     course = db.Column(db.String(200))
+    course_date = db.Column(db.Date(),nullable=False)
     rating = db.Column(db.Integer)
+    recommendation = db.Column(db.Integer)
     comments = db.Column(db.Text())
     created_on = db.Column(db.DateTime(), default=datetime.now)
     
-    def __init__(self, trainer, course, rating, comments):
-        self.trainer = trainer
+    def __init__(self, course, course_date, rating, recommendation, comments):
         self.course = course
+        self.course_date = course_date
         self.rating = rating
+        self.recommendation = recommendation
         self.comments = comments  
+
 
 
 # feedback homepage
@@ -75,23 +78,27 @@ def index():
 @app.route('/submit', methods=['POST'])
 def submit():
     if request.method == 'POST':
-        trainer = request.form['trainer']
         course = request.form['course']
+        #course_date = request.form['course_date']
         rating = request.form['rating']
+        recommendation = request.form['recommendation']
         comments = request.form['comments']
+
+        course_date = datetime.strptime(request.form['course_date'], '%Y-%m-%d')
+        print(course_date)
         
         # trainer and course is requried
-        if trainer == '' or course == '':
+        if course == '':
             return render_template('index.html', 
-                                   message='Bitte Trainer und Kurs auswählen')
+                                   message='Bitte Kurs auswählen')
         
         # insert data
-        data = Feedback(trainer, course, rating, comments)
+        data = Feedback(course, course_date, rating, recommendation, comments)
         db.session.add(data)
         db.session.commit()
         
         # send email
-        send_mail(login, password, trainer, course, rating, comments)
+        send_mail(login, password, course, course_date, rating, recommendation, comments)
         return render_template('success.html')
     
 
